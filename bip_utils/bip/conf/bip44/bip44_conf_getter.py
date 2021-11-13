@@ -48,6 +48,8 @@ class Bip44ConfGetterConst:
         Bip44Coins.BITCOIN_CASH_SLP_TESTNET: Bip44Conf.BitcoinCashSlpTestNet,
         Bip44Coins.BITCOIN_SV: Bip44Conf.BitcoinSvMainNet,
         Bip44Coins.BITCOIN_SV_TESTNET: Bip44Conf.BitcoinSvTestNet,
+        Bip44Coins.BRACTEAT: Bip44Conf.BracteatMainNet,
+        Bip44Coins.BRACTEAT_TESTNET: Bip44Conf.BracteatTestNet,
         Bip44Coins.CELO: Bip44Conf.Celo,
         Bip44Coins.COSMOS: Bip44Conf.Cosmos,
         Bip44Coins.DASH: Bip44Conf.DashMainNet,
