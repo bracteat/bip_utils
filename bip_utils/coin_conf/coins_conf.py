@@ -39,6 +39,20 @@ _BTC_P2WPKH_HRP_TN: str = "tb"
 _BTC_P2WPKH_WIT_VER_TN: int = 0
 _BTC_WIF_NET_VER_TN: bytes = b"\xef"
 
+# Bracteat constants used by different coins
+# Main net
+_TEAT_P2PKH_NET_VER_MN: bytes = b"\x41"
+_TEAT_P2SH_NET_VER_MN: bytes = b"\x19"
+_TEAT_P2WPKH_HRP_MN: str = "bt"
+_TEAT_P2WPKH_WIT_VER_MN: int = 0
+_TEAT_WIF_NET_VER_MN: bytes = b"\x17"
+# Test net
+_TEAT_P2PKH_NET_VER_TN: bytes = b"\x42"
+_TEAT_P2SH_NET_VER_TN: bytes = b"\x20"
+_TEAT_P2WPKH_HRP_TN: str = "tt"
+_TEAT_P2WPKH_WIT_VER_TN: int = 0
+_TEAT_WIF_NET_VER_TN: bytes = b"\x18"
+
 
 class CoinsConf:
     """Class container for coins configuration."""
@@ -125,7 +139,7 @@ class CoinsConf:
 
     # Configuration for Bitcoin test net
     BitcoinTestNet: CoinConf = CoinConf(
-        coin_name=CoinNames("Bitcoin TestNet", "BTC"),
+        coin_name=CoinNames("Bitcoin TestNet", "TBTC"),
         params={
             "p2pkh_net_ver": _BTC_P2PKH_NET_VER_TN,
             "p2sh_net_ver": _BTC_P2SH_NET_VER_TN,
@@ -215,11 +229,11 @@ class CoinsConf:
     BracteatMainNet: CoinConf = CoinConf(
         coin_name=CoinNames("Bracteat", "TEAT"),
         params={
-            "p2pkh_net_ver": _BTC_P2PKH_NET_VER_MN,
-            "p2sh_net_ver": _BTC_P2SH_NET_VER_MN,
-            "p2wpkh_hrp": _BTC_P2WPKH_HRP_MN,
-            "p2wpkh_wit_ver": _BTC_P2WPKH_WIT_VER_MN,
-            "wif_net_ver": _BTC_WIF_NET_VER_MN,
+            "p2pkh_net_ver": _TEAT_P2PKH_NET_VER_MN,
+            "p2sh_net_ver": _TEAT_P2SH_NET_VER_MN,
+            "p2wpkh_hrp": _TEAT_P2WPKH_HRP_MN,
+            "p2wpkh_wit_ver": _TEAT_P2WPKH_WIT_VER_MN,
+            "wif_net_ver": _TEAT_WIF_NET_VER_MN,
         },
     )
 
@@ -227,11 +241,11 @@ class CoinsConf:
     BracteatTestNet: CoinConf = CoinConf(
         coin_name=CoinNames("Bracteat TestNet", "TTEAT"),
         params={
-            "p2pkh_net_ver": _BTC_P2PKH_NET_VER_TN,
-            "p2sh_net_ver": _BTC_P2SH_NET_VER_TN,
-            "p2wpkh_hrp": _BTC_P2WPKH_HRP_TN,
-            "p2wpkh_wit_ver": _BTC_P2WPKH_WIT_VER_TN,
-            "wif_net_ver": _BTC_WIF_NET_VER_TN,
+            "p2pkh_net_ver": _TEAT_P2PKH_NET_VER_TN,
+            "p2sh_net_ver": _TEAT_P2SH_NET_VER_TN,
+            "p2wpkh_hrp": _TEAT_P2WPKH_HRP_TN,
+            "p2wpkh_wit_ver": _TEAT_P2WPKH_WIT_VER_TN,
+            "wif_net_ver": _TEAT_WIF_NET_VER_TN,
         },
     )
 
