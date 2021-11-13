@@ -282,6 +282,36 @@ class Bip44Conf:
         },
     )
 
+    # Configuration for Bracteat main net
+    BracteatMainNet: BipCoinConf = BipCoinConf(
+        coin_names=CoinsConf.BracteatMainNet.CoinNames(),
+        coin_idx=999666,
+        is_testnet=False,
+        def_path=NOT_HARDENED_DEF_PATH,
+        key_net_ver=_BIP44_BTC_KEY_NET_VER_MAIN,
+        wif_net_ver=CoinsConf.BracteatMainNet.Params("wif_net_ver"),
+        bip32_cls=Bip32Secp256k1,
+        addr_cls=P2PKHAddr,
+        addr_params={
+            "net_ver": CoinsConf.BracteatMainNet.Params("p2pkh_net_ver"),
+        },
+    )
+    
+    # Configuration for Bracteat test net
+    BracteatTestNet: BipCoinConf = BipCoinConf(
+        coin_names=CoinsConf.BracteatTestNet.CoinNames(),
+        coin_idx=666999,
+        is_testnet=True,
+        def_path=NOT_HARDENED_DEF_PATH,
+        key_net_ver=_BIP44_BTC_KEY_NET_VER_TEST,
+        wif_net_ver=CoinsConf.BracteatTestNet.Params("wif_net_ver"),
+        bip32_cls=Bip32Secp256k1,
+        addr_cls=P2PKHAddr,
+        addr_params={
+            "net_ver": CoinsConf.BracteatTestNet.Params("p2pkh_net_ver"),
+        },
+    )
+
     # Configuration for Celo
     Celo: BipCoinConf = BipCoinConf(
         coin_names=CoinsConf.Celo.CoinNames(),
