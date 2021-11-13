@@ -211,6 +211,30 @@ class CoinsConf:
         },
     )
 
+    # Configuration for Bracteat main net
+    BracteatMainNet: CoinConf = CoinConf(
+        coin_name=CoinNames("Bracteat", "TEAT"),
+        params={
+            "p2pkh_net_ver": _BTC_P2PKH_NET_VER_MN,
+            "p2sh_net_ver": _BTC_P2SH_NET_VER_MN,
+            "p2wpkh_hrp": _BTC_P2WPKH_HRP_MN,
+            "p2wpkh_wit_ver": _BTC_P2WPKH_WIT_VER_MN,
+            "wif_net_ver": _BTC_WIF_NET_VER_MN,
+        },
+    )
+
+    # Configuration for Bracteat test net
+    BracteatTestNet: CoinConf = CoinConf(
+        coin_name=CoinNames("Bracteat TestNet", "TTEAT"),
+        params={
+            "p2pkh_net_ver": _BTC_P2PKH_NET_VER_TN,
+            "p2sh_net_ver": _BTC_P2SH_NET_VER_TN,
+            "p2wpkh_hrp": _BTC_P2WPKH_HRP_TN,
+            "p2wpkh_wit_ver": _BTC_P2WPKH_WIT_VER_TN,
+            "wif_net_ver": _BTC_WIF_NET_VER_TN,
+        },
+    )
+
     # Configuration for Celo
     Celo: CoinConf = CoinConf(
         coin_name=CoinNames("Celo", "CELO"),
