@@ -152,7 +152,9 @@ class CryptoUtils:
         Returns:
             bytes: Computed RIPEMD-160
         """
-        return hashlib.new("ripemd160", AlgoUtils.Encode(data)).digest()
+        # return hashlib.new("ripemd160", AlgoUtils.Encode(data)).digest()
+        from pycoin.encoding.hash import ripemd160
+        return ripemd160(AlgoUtils.Encode(data)).digest()
 
     @staticmethod
     def Hash160(data: Union[bytes, str]) -> bytes:
@@ -165,7 +167,9 @@ class CryptoUtils:
         Returns:
             bytes: Computed Hash-160
         """
-        return CryptoUtils.Ripemd160(CryptoUtils.Sha256(data))
+        # return CryptoUtils.Ripemd160(CryptoUtils.Sha256(data))
+        from pycoin.encoding.hash import hash160
+        return hash160(data)
 
     @staticmethod
     def Crc32(data: Union[bytes, str]) -> int:
