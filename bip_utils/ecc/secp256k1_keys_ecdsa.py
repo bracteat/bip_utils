@@ -34,7 +34,7 @@ from bip_utils.utils.misc import ConvUtils, DataBytes
 class Secp256k1PointEcdsa(IPoint):
     """Secp256k1 point class."""
 
-    m_point: ellipticcurve.PointJacobi
+    m_point: ellipticcurve.Point
 
     @classmethod
     def FromBytes(cls,
@@ -49,11 +49,11 @@ class Secp256k1PointEcdsa(IPoint):
             IPoint: IPoint object
         """
         try:
-            return cls(ellipticcurve.PointJacobi.from_bytes(curve_secp256k1,
+            return cls(ellipticcurve.Point.from_bytes(curve_secp256k1,
                                                             point_bytes))
         except keys.MalformedPointError as ex:
             raise ValueError("Invalid point key bytes") from ex
-        # ECDSA < 0.17 doesn't have from_bytes method for PointJacobi
+        # ECDSA < 0.17 doesn't have from_bytes method for Point
         except AttributeError:
             return cls.FromCoordinates(ConvUtils.BytesToInteger(point_bytes[:EcdsaKeysConst.POINT_BYTE_LEN]),
                                        ConvUtils.BytesToInteger(point_bytes[EcdsaKeysConst.POINT_BYTE_LEN:]))
@@ -72,7 +72,7 @@ class Secp256k1PointEcdsa(IPoint):
         Returns:
             IPoint: IPoint object
         """
-        return cls(ellipticcurve.PointJacobi.from_affine(
+        return cls(ellipticcurve.Point.from_affine(
             ellipticcurve.Point(curve_secp256k1, x, y))
         )
 
@@ -87,7 +87,7 @@ class Secp256k1PointEcdsa(IPoint):
         Raises:
             TypeError: If point object is not of the correct type
         """
-        if not isinstance(point_obj, ellipticcurve.PointJacobi):
+        if not isinstance(point_obj, ellipticcurve.Point):
             raise TypeError("Invalid point object type")
         self.m_point = point_obj
 
@@ -127,7 +127,7 @@ class Secp256k1PointEcdsa(IPoint):
         """
         try:
             return DataBytes(self.m_point.to_bytes())
-        # ECDSA < 0.17 doesn't have to_bytes method for PointJacobi
+        # ECDSA < 0.17 doesn't have to_bytes method for Point
         except AttributeError:
             x_bytes = ConvUtils.IntegerToBytes(self.m_point.x(), EcdsaKeysConst.POINT_BYTE_LEN)
             y_bytes = ConvUtils.IntegerToBytes(self.m_point.y(), EcdsaKeysConst.POINT_BYTE_LEN)
